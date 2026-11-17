@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "WebTest Helper - 测试辅助助手",
+  "version": "1.2.0",
+  "description": "点选元素自动生成 XPath/CSS 定位，一键导出页面表单字段为用例草稿，并记录当前页面的接口请求，方便写缺陷单。",
+  "permissions": ["activeTab", "scripting", "storage", "webRequest", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "WebTest Helper" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
